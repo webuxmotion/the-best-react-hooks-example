@@ -1,10 +1,13 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from './context/AppContext';
 
-function DepositButton({ onDeposit }) {
+function DepositButton() {
+  const { deposit } = useContext(AppContext);
+
   return <button
     className="button"
     type="button"
-    onClick={() => onDeposit(20)}
+    onClick={() => deposit(20)}
   >
     Deposit
   </button>;

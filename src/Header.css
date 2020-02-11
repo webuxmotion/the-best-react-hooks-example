@@ -1,0 +1,25 @@
+.header {
+  position: absolute;
+  padding: 30px 50px;
+}
+.header__body {
+  display: flex;
+}
+.header__logo {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+.header ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-left: 50px;
+}
+.header ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+.header ul li a {
+  color: white;
+}

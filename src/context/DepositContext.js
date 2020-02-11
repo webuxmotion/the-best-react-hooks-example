@@ -4,8 +4,9 @@ const DepositContext = createContext();
 
 function DepositContextProvider({ children }) {
     const [profit, setProfit] = useState(0);
-    const [amount, setAmount] = useState(5074);
-    const [procents, setProcents] = useState(18);
+    const [amount, setAmount] = useState(10000);
+    const [amountOld, setAmountOld] = useState(10000);
+    const [procents, setProcents] = useState(16);
     const [simpleProfit, setSimpleProfit] = useState(0);
 
     const onChangeAmount = (e) => {
@@ -31,6 +32,7 @@ function DepositContextProvider({ children }) {
         for (let i = 1; i <= 12; i++) {
             result = getMonthProfit(result, procents) + result;
         }
+        setAmountOld(+amount);
         setProfit(result - amount);
         setSimpleProfit(getMonthProfit(amount, procents) * 12);
     }
@@ -42,8 +44,13 @@ function DepositContextProvider({ children }) {
         procents,
         onChangeAmount,
         onChangeProcents,
-        calculate
+        calculate,
+        amountOld
     };
+
+    useEffect(() => {
+        calculate();
+    }, []);
 
     return (
         <DepositContext.Provider value={defaultContext}>

@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { AppContextProvider } from './context/AppContext';
+import { DepositContextProvider } from './context/DepositContext';
 import App from "./App.js";
 
 ReactDOM.render(
-    <AppContextProvider>
+    <DepositContextProvider>
         <App />
-    </AppContextProvider>,
+    </DepositContextProvider>,
     document.getElementById("root")
 );
